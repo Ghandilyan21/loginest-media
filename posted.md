@@ -1,0 +1,10 @@
+# Posted episodes (loginest_dev)
+
+| # | Date | Name | Reel media id | Story |
+|---|------|------|---------------|-------|
+| 1 | 2026-11-22 | Typing dots | posted manually | - |
+| 2 | 2026-11-22 | Story progress bars | posted manually | - |
+| 3 | 2026-11-22 | Album colors (ColorScheme.fromImageProvider) | posted manually | - |
+| 4 | 2026-11-22 | Swipe cards | posted manually | - |
+| 5 | 2026-11-22 | Dynamic Island | posted manually | - |
+| 6 | 2026-11-22 | Double-tap heart | posted manually | - |
