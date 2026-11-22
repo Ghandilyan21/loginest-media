@@ -8,4 +8,4 @@
 | 4 | 2026-11-22 | Swipe cards | posted manually | - |
 | 5 | 2026-11-22 | Dynamic Island | posted manually | - |
 | 6 | 2026-11-22 | Double-tap heart | posted manually | - |
-| 7 | 2026-11-23 | Wrong PIN shake | 17916978456503098 | yes (18115037495616795) |
+| 7 | 2026-11-23 | Wrong PIN shake (TEST) | 17916978456503098 | yes (18115037495616795) |

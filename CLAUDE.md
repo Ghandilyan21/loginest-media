@@ -15,6 +15,10 @@ Work in `studio/`. Scripts there import each other by module name, so run them f
 
 ## 2. Pick the episode
 - Read `posted.md`. The new episode number is the last number + 1.
+- Rows marked `(TEST)` in posted.md are test posts that were deleted: ignore them for the episode number,
+  the idea choice and the "already posted today" check.
+- If `studio/ep_NN_*.py` already exists for the chosen idea (left by a test run), reuse it: check stills,
+  re-render, and continue from step 4.
 - Take the first idea in `ideas.md` that is not in `posted.md`. If an idea's Flutter API turns out not to exist
   or not to fit, skip it (note why in ideas.md) and take the next one.
 - When fewer than 5 ideas remain, add new ones at the bottom: famous app UI features that are recognisable in
@@ -54,6 +58,14 @@ python3 build.py ep_NN_slug ../reels/rebuild_it_NN_slug.mp4
 Look at the stills (Read the PNGs). Fix overlaps, text running off cards, and anything covering code
 before the full render. After the render, sample frames
 (`ffmpeg -i X.mp4 -vf "fps=1/2.5,scale=270:-1,tile=5x2" -frames:v 1 /tmp/check.png`) and look again.
+
+## 4b. Add music (required — never post a silent video)
+```
+cd studio && MUSIC_KEY=<key from the task prompt> sh add_music.sh NN ../reels/rebuild_it_NN_slug.mp4
+ffprobe -v error -show_entries stream=codec_type -of csv=p=0 ../reels/rebuild_it_NN_slug.mp4   # must list video AND audio
+```
+Tracks live encrypted in `music/` and are listed in `music/tracks.txt` (file + start second). Never commit a
+decrypted track or print the key. If MUSIC_KEY is missing or decryption fails, stop and report instead of posting.
 
 ## 5. Cover
 ```python
