@@ -9,4 +9,4 @@
 | 5 | 2026-11-22 | Dynamic Island | posted manually | - |
 | 6 | 2026-11-22 | Double-tap heart | posted manually | - |
 | 7 | 2026-11-23 | Wrong PIN shake (TEST) | 17916978456503098 | yes (18115037495616795) |
-| 7 | 2026-11-23 | Wrong PIN shake | 18173089903472463 | yes (18243322060319214) |
+| 7 | 2026-11-23 | Wrong PIN shake (TEST) | 18173089903472463 | yes (18243322060319214) |
