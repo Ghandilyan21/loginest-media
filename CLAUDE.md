@@ -10,7 +10,8 @@ highlighting (Shiki, tokyo-night), Space Grotesk titles, gradient (violet→pink
 mascot **Widgy** (glossy blue box robot) as the main character in every scene.
 `studio/` (old Python/cairo engine) is retired; only `studio/add_music.sh` is still used.
 
-When a run is asked to make and post today's episode, follow every step below in order.
+Schedule: **two episodes a day**, posted around **09:00 and 19:00 Yerevan time** (the runs start ~35 min earlier).
+When a run is asked to make and post an episode, follow every step below in order.
 
 ## 1. Set up
 ```
@@ -21,7 +22,9 @@ command -v google-chrome            # Remotion renders with this Chrome (render.
 ## 2. Pick the episode
 - Read `posted.md`. The new episode number is the last number + 1 (two digits, e.g. 08).
 - Rows marked `(TEST)` are deleted test posts: ignore them for the number, the idea choice and the
-  "already posted today" check.
+  duplicate check below.
+- Duplicate check: if the newest non-TEST row in posted.md was posted **less than 6 hours ago** (Yerevan time),
+  this slot is already done: stop and report instead of posting.
 - If `remotion/src/episodes/EpNN.tsx` already exists (from a test run or prepared in advance), reuse it and go to step 4.
 - Otherwise take the first idea in `ideas.md` that is not in `posted.md`. If its Flutter API turns out not to
   exist or not to fit, skip it (note why in ideas.md) and take the next one.
@@ -106,9 +109,9 @@ Rebuild It in Flutter #NN. Which app feature should I rebuild next? Drop it in t
 ```
 
 ## 7. Record it
-Append to `posted.md`: `| NN | YYYY-MM-DD | Name | reel media id | story ok? |`, commit and push.
+Append to `posted.md`: `| NN | YYYY-MM-DD HH:MM | Name | reel media id | story ok? |` (date and time in Yerevan time, UTC+4), commit and push.
 Finish with a short message to Tyom: episode name, what it teaches, that the Reel and Story are live
 (or exactly what failed).
 
-Never post a video whose render or checks failed. Never post the same episode twice: if posted.md already
-has today's date with a media id (ignoring `(TEST)` rows), stop and report.
+Never post a video whose render or checks failed. Never post the same episode twice, and never post twice in
+one slot (see the 6-hour duplicate check in step 2).
