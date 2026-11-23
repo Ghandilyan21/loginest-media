@@ -1,0 +1,36 @@
+{
+  "code1": [
+    "// _shake: 500 ms controller",
+    "AnimatedBuilder(",
+    "  animation: _shake,",
+    "  builder: (context, child) {",
+    "    final v = _shake.value;",
+    "    final dx = sin(v * pi * 8)",
+    "        * 24 * (1 - v);",
+    "    return Transform.translate(",
+    "      offset: Offset(dx, 0),",
+    "      child: child,",
+    "    );",
+    "  },",
+    "  child: const PinDots(),",
+    ")"
+  ],
+  "trap": [
+    "_shake.forward();",
+    "// works once... then never again"
+  ],
+  "code2": [
+    "late final _shake = AnimationController(",
+    "  vsync: this,",
+    "  duration: const Duration(",
+    "    milliseconds: 500,",
+    "  ),",
+    ");",
+    "",
+    "Future<void> _onWrongPin() async {",
+    "  HapticFeedback.heavyImpact();",
+    "  await _shake.forward(from: 0);",
+    "  setState(() => _pin = '');",
+    "}"
+  ]
+}
