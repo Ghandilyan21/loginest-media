@@ -3,7 +3,7 @@
 # Picks a track from ../music/tracks.txt (rotating by episode number), decrypts it to /tmp,
 # lays it under the video unchanged (stream copy, original quality), and replaces the video in place.
 set -e
-N="$1"; V="$2"; DIR="$(cd "$(dirname "$0")/../music" && pwd)"
+N=$(echo "$1" | sed "s/^0*//"); N=${N:-0}; V="$2"; DIR="$(cd "$(dirname "$0")/../music" && pwd)"
 [ -n "$MUSIC_KEY" ] || { echo "MUSIC_KEY not set"; exit 1; }
 COUNT=$(grep -cv '^\s*\(#\|$\)' "$DIR/tracks.txt")
 IDX=$(( (N % COUNT) + 1 ))

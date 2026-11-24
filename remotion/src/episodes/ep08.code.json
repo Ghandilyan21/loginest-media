@@ -1,0 +1,39 @@
+{
+  "code1": [
+    "// _flip: 0 → 1 controller",
+    "AnimatedBuilder(",
+    "  animation: _flip,",
+    "  builder: (context, child) {",
+    "    final angle = _flip.value * pi;",
+    "    return Transform(",
+    "      alignment: Alignment.center,",
+    "      transform: Matrix4.identity()",
+    "        ..setEntry(3, 2, 0.001)",
+    "        ..rotateY(angle),",
+    "      child: child,",
+    "    );",
+    "  },",
+    "  child: const CardFront(),",
+    ")"
+  ],
+  "trap": [
+    "Matrix4.identity()..rotateY(angle)",
+    "child: const CardFront(), // always"
+  ],
+  "code2": [
+    "final angle = _flip.value * pi;",
+    "final isBack = angle > pi / 2;",
+    "return Transform(",
+    "  alignment: Alignment.center,",
+    "  transform: Matrix4.identity()",
+    "    ..setEntry(3, 2, 0.001)",
+    "    ..rotateY(angle),",
+    "  child: isBack",
+    "      ? Transform.flip(",
+    "          flipX: true,",
+    "          child: const CardBack(),",
+    "        )",
+    "      : const CardFront(),",
+    ");"
+  ]
+}

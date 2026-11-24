@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Composition, Still, continueRender, delayRender} from 'remotion';
 import {FPS, W, H} from './kit/theme';
 import {Ep07, EP07_FRAMES, Cover07} from './episodes/Ep07';
+import {Ep08, EP08_FRAMES, Cover08} from './episodes/Ep08';
 
 /** wait for the bundled fonts before any frame is captured */
 const FontGate: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -25,5 +26,7 @@ export const Root: React.FC = () => (
   <>
     <Still id="cover07" component={withFonts(Cover07)} width={W} height={H} />
     <Composition id="ep07" component={withFonts(Ep07)} durationInFrames={EP07_FRAMES} fps={FPS} width={W} height={H} />
+    <Still id="cover08" component={withFonts(Cover08)} width={W} height={H} />
+    <Composition id="ep08" component={withFonts(Ep08)} durationInFrames={EP08_FRAMES} fps={FPS} width={W} height={H} />
   </>
 );
