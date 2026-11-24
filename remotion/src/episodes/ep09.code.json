@@ -1,0 +1,36 @@
+{
+  "code1": [
+    "// inside AnimatedBuilder (_c.repeat())",
+    "final x = _c.value * 4 - 3;",
+    "return ShaderMask(",
+    "  blendMode: BlendMode.srcATop,",
+    "  shaderCallback: (rect) {",
+    "    return LinearGradient(",
+    "      begin: Alignment(x, 0),",
+    "      end: Alignment(x + 2, 0),",
+    "      colors: [_grey, _light, _grey],",
+    "      stops: const [0.35, 0.5, 0.65],",
+    "    ).createShader(rect);",
+    "  },",
+    "  child: const Bones(),",
+    ");"
+  ],
+  "trap": [
+    "// a Shimmer around every bone",
+    "Shimmer(child: Bone(width: 220)),",
+    "Shimmer(child: Bone(width: 140)),"
+  ],
+  "code2": [
+    "// ONE Shimmer around the whole list",
+    "AnimatedSwitcher(",
+    "  duration: const Duration(",
+    "    milliseconds: 400,",
+    "  ),",
+    "  child: _loading",
+    "      ? const Shimmer(",
+    "          child: SkeletonList(),",
+    "        )",
+    "      : PostList(posts: _posts),",
+    ")"
+  ]
+}
