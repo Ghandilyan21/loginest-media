@@ -1,0 +1,35 @@
+{
+  "code1": [
+    "@override",
+    "void paint(Canvas canvas, Size s) {",
+    "  final w = s.width, h = s.height;",
+    "  final path = Path()",
+    "    ..moveTo(w * 0.27, h * 0.54)",
+    "    ..lineTo(w * 0.44, h * 0.70)",
+    "    ..lineTo(w * 0.75, h * 0.36);",
+    "  final m = path.computeMetrics().first;",
+    "  canvas.drawPath(",
+    "    m.extractPath(0, m.length * t),",
+    "    _pen,",
+    "  );",
+    "}"
+  ],
+  "trap": [
+    "final _pen = Paint()",
+    "  ..color = Colors.white",
+    "  ..strokeWidth = 14;",
+    "// style? defaults to fill"
+  ],
+  "code2": [
+    "final _pen = Paint()",
+    "  ..color = Colors.white",
+    "  ..strokeWidth = 14",
+    "  ..style = PaintingStyle.stroke",
+    "  ..strokeCap = StrokeCap.round",
+    "  ..strokeJoin = StrokeJoin.round;",
+    "",
+    "@override",
+    "bool shouldRepaint(CheckPainter old) =>",
+    "    old.t != t;"
+  ]
+}
