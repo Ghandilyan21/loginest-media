@@ -147,7 +147,7 @@ export const CodeCard: React.FC<{
         {['#FF5F57', '#FEBC2E', '#28C840'].map((c) => <span key={c} style={{width: 20, height: 20, borderRadius: 10, background: c}} />)}
         <span style={{marginLeft: 'auto', fontFamily: F.mono, fontSize: 26, color: C.dim}}>{file}</span>
       </div>
-      <div style={{padding: '26px 0', fontFamily: F.mono, fontSize: fs}}>
+      <div style={{padding: '26px 0', fontFamily: F.mono, fontSize: fs, fontVariantLigatures: 'none'}}>
         {tokens.map((line, li) => {
           const lp = ease(f, start + li * step, 10);
           const isHl = hl.includes(li);

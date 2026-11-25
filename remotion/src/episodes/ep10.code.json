@@ -1,0 +1,40 @@
+{
+  "code1": [
+    "GestureDetector(",
+    "  onHorizontalDragUpdate: (d) {",
+    "    setState(() {",
+    "      _dx = (_dx + d.delta.dx)",
+    "          .clamp(0.0, 80.0);",
+    "    });",
+    "  },",
+    "  onHorizontalDragEnd: (_) {",
+    "    if (_dx >= 64) _reply();",
+    "    setState(() => _dx = 0);",
+    "  },",
+    "  child: Transform.translate(",
+    "    offset: Offset(_dx, 0),",
+    "    child: bubble),",
+    ")"
+  ],
+  "trap": [
+    "onHorizontalDragUpdate: (d) {",
+    "  // ...update _dx",
+    "  if (_dx >= 64) {",
+    "    HapticFeedback.mediumImpact();",
+    "  }",
+    "},"
+  ],
+  "code2": [
+    "void _onUpdate(DragUpdateDetails d) {",
+    "  final before = _dx;",
+    "  setState(() {",
+    "    _dx = (_dx + d.delta.dx)",
+    "        .clamp(0.0, 80.0);",
+    "  });",
+    "  // buzz only when crossing 64",
+    "  if (before < 64 && _dx >= 64) {",
+    "    HapticFeedback.mediumImpact();",
+    "  }",
+    "}"
+  ]
+}
