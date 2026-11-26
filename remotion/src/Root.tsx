@@ -7,6 +7,7 @@ import {Ep09, EP09_FRAMES, Cover09} from './episodes/Ep09';
 import {Ep10, EP10_FRAMES, Cover10} from './episodes/Ep10';
 import {Ep11, EP11_FRAMES, Cover11} from './episodes/Ep11';
 import {Ep12, EP12_FRAMES, Cover12} from './episodes/Ep12';
+import {Ep13, EP13_FRAMES, Cover13} from './episodes/Ep13';
 
 /** wait for the bundled fonts before any frame is captured */
 const FontGate: React.FC<{children: React.ReactNode}> = ({children}) => {
@@ -40,5 +41,7 @@ export const Root: React.FC = () => (
     <Composition id="ep11" component={withFonts(Ep11)} durationInFrames={EP11_FRAMES} fps={FPS} width={W} height={H} />
     <Still id="cover12" component={withFonts(Cover12)} width={W} height={H} />
     <Composition id="ep12" component={withFonts(Ep12)} durationInFrames={EP12_FRAMES} fps={FPS} width={W} height={H} />
+    <Still id="cover13" component={withFonts(Cover13)} width={W} height={H} />
+    <Composition id="ep13" component={withFonts(Ep13)} durationInFrames={EP13_FRAMES} fps={FPS} width={W} height={H} />
   </>
 );

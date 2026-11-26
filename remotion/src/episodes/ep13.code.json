@@ -1,0 +1,42 @@
+{
+  "code1": [
+    "GestureDetector(",
+    "  onTap: () => Navigator.push(context,",
+    "    MaterialPageRoute(",
+    "      builder: (_) => Details(m))),",
+    "  child: Hero(",
+    "    tag: 'poster-${m.id}',",
+    "    child: Poster(m),",
+    "  ),",
+    "),",
+    "// details screen",
+    "Hero(",
+    "  tag: 'poster-${m.id}',",
+    "  child: Poster(m, big: true),",
+    "),"
+  ],
+  "trap": [
+    "// details title, no fix",
+    "Hero(",
+    "  tag: 'title-${m.id}',",
+    "  child: Text(m.title, style: h1),",
+    "),",
+    "// in flight: no Material above it"
+  ],
+  "code2": [
+    "Hero(",
+    "  tag: 'title-${m.id}',",
+    "  flightShuttleBuilder:",
+    "      (ctx, anim, dir, from, to) {",
+    "    final hero = to.widget as Hero;",
+    "    return Material(",
+    "      type: MaterialType.transparency,",
+    "      child: FittedBox(",
+    "        child: hero.child,",
+    "      ),",
+    "    );",
+    "  },",
+    "  child: Text(m.title, style: h1),",
+    "),"
+  ]
+}
