@@ -1,0 +1,42 @@
+{
+  "code1": [
+    "DraggableScrollableSheet(",
+    "  initialChildSize: 0.12,",
+    "  minChildSize: 0.12,",
+    "  maxChildSize: 0.9,",
+    "  snap: true,",
+    "  snapSizes: const [0.45],",
+    "  builder: (context, scroll) {",
+    "    return ListView(",
+    "      controller: scroll,",
+    "      children: places,",
+    "    );",
+    "  },",
+    ")"
+  ],
+  "trap": [
+    "builder: (context, scroll) {",
+    "  return ListView(",
+    "    // controller: scroll,  forgot",
+    "    children: places,",
+    "  );",
+    "},"
+  ],
+  "code2": [
+    "final sheet =",
+    "    DraggableScrollableController();",
+    "DraggableScrollableSheet(",
+    "  controller: sheet,",
+    "  snap: true,",
+    "  snapSizes: const [0.45],",
+    "  builder: (context, scroll) => ListView(",
+    "    controller: scroll, // the fix",
+    "    children: places,",
+    "  ),",
+    ")",
+    "// tap a pin: open to half",
+    "sheet.animateTo(0.45,",
+    "  duration: Durations.medium2,",
+    "  curve: Curves.easeOutCubic);"
+  ]
+}
