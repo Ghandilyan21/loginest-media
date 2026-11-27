@@ -1,0 +1,39 @@
+{
+  "code1": [
+    "final productKey = GlobalKey();",
+    "final cartKey = GlobalKey();",
+    "",
+    "Offset centerOf(GlobalKey key) {",
+    "  final box = key.currentContext!",
+    "      .findRenderObject() as RenderBox;",
+    "  return box.localToGlobal(",
+    "    box.size.center(Offset.zero),",
+    "  );",
+    "}",
+    "",
+    "final from = centerOf(productKey);",
+    "final to = centerOf(cartKey);"
+  ],
+  "trap": [
+    "return box.localToGlobal(",
+    "  Offset.zero, // top-left corner!",
+    ");"
+  ],
+  "code2": [
+    "final entry = OverlayEntry(",
+    "  builder: (_) => AnimatedBuilder(",
+    "    animation: fly, builder: (_, __) {",
+    "      final p = Offset.lerp(",
+    "          from, to, fly.value)!;",
+    "      return Positioned(",
+    "        left: p.dx - 24, top: p.dy - 24,",
+    "        child: const FoodThumb(),",
+    "      );",
+    "    },",
+    "  ),",
+    ");",
+    "Overlay.of(context).insert(entry);",
+    "await fly.forward(from: 0);",
+    "entry.remove();"
+  ]
+}
