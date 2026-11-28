@@ -1,0 +1,42 @@
+{
+  "code1": [
+    "const ringColors = [",
+    "  Colors.amber, Colors.pink,",
+    "  Colors.purple, Colors.amber,",
+    "]; // amber twice = no seam",
+    "",
+    "Container(",
+    "  padding: const EdgeInsets.all(5),",
+    "  decoration: const BoxDecoration(",
+    "    shape: BoxShape.circle,",
+    "    gradient: SweepGradient(",
+    "      colors: ringColors,",
+    "    ),",
+    "  ),",
+    "  child: const Avatar(),",
+    ")"
+  ],
+  "trap": [
+    "Transform.rotate(",
+    "  angle: _spin.value * 2 * pi,",
+    "  child: const StoryRing(), // + photo",
+    ")"
+  ],
+  "code2": [
+    "AnimatedBuilder(",
+    "  animation: _spin, // 1 s, ..repeat()",
+    "  builder: (context, _) => Container(",
+    "    padding: const EdgeInsets.all(5),",
+    "    decoration: BoxDecoration(",
+    "      shape: BoxShape.circle,",
+    "      gradient: SweepGradient(",
+    "        colors: ringColors,",
+    "        transform: GradientRotation(",
+    "            _spin.value * 2 * pi),",
+    "      ),",
+    "    ),",
+    "    child: const Avatar(), // stays still",
+    "  ),",
+    ")"
+  ]
+}

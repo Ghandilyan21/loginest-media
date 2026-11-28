@@ -23,3 +23,11 @@
     that fly and fade; CustomPainter with a particle list.
 14. **Typing text effect** (ChatGPT-style streaming answer): Timer/Stream revealing characters + blinking cursor.
     Trap: setState per character rebuilds the whole page — isolate it in its own widget.
+15. **Rolling counter digits** (likes / price ticker): AnimatedSwitcher with a SlideTransition in transitionBuilder.
+    Trap: without `key: ValueKey(value)` on the child, AnimatedSwitcher sees the same widget and never animates.
+16. **Parallax collapsing header** (travel/listing apps): SliverAppBar(expandedHeight, stretch: true) + FlexibleSpaceBar(collapseMode: CollapseMode.parallax).
+    Trap: stretch does nothing without BouncingScrollPhysics on Android.
+17. **Stretchy onboarding dots** (onboarding pager): dot width driven by PageController.page in an AnimatedBuilder.
+    Trap: onPageChanged only fires at the end, so the dots jump; read controller.page for smooth motion.
+18. **Sliding tab pill** (Google-style tabs): TabBar indicator: BoxDecoration(borderRadius) with indicatorSize: TabBarIndicatorSize.tab.
+    Tip: dividerColor: Colors.transparent removes the M3 underline.
