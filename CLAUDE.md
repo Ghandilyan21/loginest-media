@@ -10,7 +10,7 @@ highlighting (Shiki, tokyo-night), Space Grotesk titles, gradient (violet→pink
 mascot **Widgy** (glossy blue box robot) as the main character in every scene.
 `studio/` (old Python/cairo engine) is retired; only `studio/add_music.sh` is still used.
 
-Schedule: **two episodes a day**, posted around **09:00 and 19:00 Yerevan time** (the runs start ~35 min earlier).
+Schedule: **one episode a day**, posted around **19:00 Yerevan time** (the run starts ~35 min earlier).
 When a run is asked to make and post an episode, follow every step below in order.
 
 ## 1. Set up
